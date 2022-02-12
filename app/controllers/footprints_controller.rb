@@ -17,11 +17,11 @@ class FootprintsController < ApplicationController
     @footprint.user = current_user
     authorize @footprint
 
-    if @footprint.save
+    if @footprint.save!
 
       redirect_to @footprint, notice: 'Your digital carbon footprints has been created'
     else
-      render :index
+      render :new
     end
   end
 
