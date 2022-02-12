@@ -12,6 +12,7 @@
     <% current_user.footprints.each do |footprint| %>
       <div class="">
         <h3><strong>Total Carbon Footprint:</strong> <%= footprint.carbon_footprint %></h3>
+        <%# <% if footprint.terminal_category ==  %>
         <%= link_to "See datas", footprint_path(footprint[:id]) %>
       <% end %>
   </div>

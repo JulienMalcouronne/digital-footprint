@@ -20,7 +20,7 @@ class FootprintsController < ApplicationController
     elsif @footprint.country == "USA"
       area = 447
     else
-      area = 3
+      area = 596
     end
 
     if @footprint.terminal_category == "phone"
@@ -29,7 +29,7 @@ class FootprintsController < ApplicationController
       terminal = 3.2**-4
     end
 
-    @footprint.carbon_footprint = @footprint.data_size * (7.2**-11 + 1.52**-10)* 59 + @footprint.duration_on_terminal * terminal * area
+    @footprint.carbon_footprint = @footprint.data_size * (7.2**-11 + 1.52**-10)* 59 + @footprint.duration_on_terminal * terminal * area * @footprint.additional_factor
 
     authorize @footprint
 

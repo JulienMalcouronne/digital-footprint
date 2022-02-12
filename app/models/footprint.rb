@@ -5,4 +5,5 @@ class Footprint < ApplicationRecord
   validates :terminal_category, presence: true
   validates :data_size, presence: true
   validates :country, presence: true
+  validates :carbon_footprint, presence: true
 end
