@@ -3,7 +3,7 @@
     <%= simple_form_for(@footprint) do |f| %>
     <div style="display:flex; justify-content: space-around" class="">
        <div class="m-2" >
-        <%= f.input :duration_on_terminal %>
+        <%= f.number_field :duration_on_terminal %>
       </div>
         <div class="m-2" >
         <%= f.input :terminal_category, collection: ["Phone", "Computer"] %>
