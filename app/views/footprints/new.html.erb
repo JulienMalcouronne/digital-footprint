@@ -3,6 +3,7 @@
     <%= simple_form_for(@footprint) do |f| %>
     <div style="display:flex; justify-content: space-around" class="">
        <div class="m-2" >
+       <div><%= f.label :duration_on_terminal %></div>
         <%= f.number_field :duration_on_terminal %>
       </div>
         <div class="m-2" >
