@@ -1,9 +1,10 @@
 class FootprintsController < ApplicationController
-
+  # skip_before_action :authenticate_user!, only: :index
   before_action :set_footprint, only: %i[show]
 
   def index
     @footprints = policy_scope(Footprint)
+    # @user = current_user
   end
 
   def new
@@ -20,7 +21,7 @@ class FootprintsController < ApplicationController
 
       redirect_to @footprint, notice: 'Your digital carbon footprints has been created'
     else
-      render :new
+      render :index
     end
   end
 

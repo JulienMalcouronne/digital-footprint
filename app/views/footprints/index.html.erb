@@ -1,18 +1,31 @@
 <div class="container">
   <div class="title text-center d-flex justify-content-between align-items-center">
-    <% if @footprints.any? %>
+    <% if current_user && current_user.footprints.any? %>
+    <%= link_to "Log out", destroy_user_session_path, :method => :get %>
     <h1>Please find below all your digital carbon footprint</h1>
     <% else %>
-    <% link_to "calculate your carbon footprint", new_footprint_path %>
+    <%= link_to "calculate your carbon footprint", new_footprint_path %>
     <% end  %>
   </div>
   <div class="" >
-    <% @footprints.each do |footprint| %>
+    <% current_user.footprints.each do |footprint| %>
       <div class="">
-        <%= footprint.duration_on_terminal  %>
-        <%= footprint.terminal_category %>
-        <%= footprint.data_size %>
-        <%= footprint.country %>
+        <% if footprint.terminal_category == "phone" %>
+          <% terminal = 1.1**-4 %>
+        <% else %>
+          <% terminal = 3.2**-4 %>
+        <% end %>
+
+        <% if footprint.country == "France" %>
+          <% area = 59 %>
+        <% elsif footprint.country == "USA" %>
+          <% area = 447 %>
+        <% else %>
+          <% area = 3 %>
+        <% end %>
+        <% carbon_footprint = footprint.data_size * (7.2**-11 + 1.52**-10)* 59 + footprint.duration_on_terminal * terminal * area %>
+        <h2><strong>Total Carbon Footprint:</strong> <%= carbon_footprint %></h2>
+        <%= link_to "See datas", footprint_path(footprint[:id]) %>
       <% end %>
   </div>
 </div>

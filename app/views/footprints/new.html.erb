@@ -3,19 +3,17 @@
     <%= simple_form_for(@footprint) do |f| %>
     <div style="display:flex; justify-content: space-around" class="">
        <div class="m-2" >
-        <div><%= f.label :duration_on_terminal %></div>
-        <%= f.time_field :duration_on_terminal %>
+        <%= f.input :duration_on_terminal %>
       </div>
         <div class="m-2" >
-          <div><%= f.label :terminal_category %></div>
-        <%= f.input :terminal_category %>
+        <%= f.input :terminal_category, collection: ["Phone", "Computer"] %>
       </div>
     </div>
       <div class="m-2" >
         <%= f.input :country, collection: ["France", "USA", "China"] %>
       </div>
     </div>
-    <div class="full_with_input">
+    <div>
        <div class="m-2 ">
         <div><%= f.label :data_size %></div>
         <%= f.number_field :data_size %>
