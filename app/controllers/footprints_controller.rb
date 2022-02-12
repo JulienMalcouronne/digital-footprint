@@ -15,6 +15,22 @@ class FootprintsController < ApplicationController
   def create
     @footprint = Footprint.new(footprint_params)
     @footprint.user = current_user
+    if @footprint.country == "France"
+      area = 59
+    elsif @footprint.country == "USA"
+      area = 447
+    else
+      area = 3
+    end
+
+    if @footprint.terminal_category == "phone"
+      terminal = 1.1**-4
+    else
+      terminal = 3.2**-4
+    end
+
+    @footprint.carbon_footprint = @footprint.data_size * (7.2**-11 + 1.52**-10)* 59 + @footprint.duration_on_terminal * terminal * area
+
     authorize @footprint
 
     if @footprint.save!

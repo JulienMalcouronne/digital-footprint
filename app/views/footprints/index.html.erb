@@ -11,21 +11,7 @@
   <div class="" >
     <% current_user.footprints.each do |footprint| %>
       <div class="">
-        <% if footprint.terminal_category == "phone" %>
-          <% terminal = 1.1**-4 %>
-        <% else %>
-          <% terminal = 3.2**-4 %>
-        <% end %>
-
-        <% if footprint.country == "France" %>
-          <% area = 59 %>
-        <% elsif footprint.country == "USA" %>
-          <% area = 447 %>
-        <% else %>
-          <% area = 3 %>
-        <% end %>
-        <% carbon_footprint = footprint.data_size * (7.2**-11 + 1.52**-10)* 59 + footprint.duration_on_terminal * terminal * area %>
-        <h3><strong>Total Carbon Footprint:</strong> <%= carbon_footprint %></h3>
+        <h3><strong>Total Carbon Footprint:</strong> <%= footprint.carbon_footprint %></h3>
         <%= link_to "See datas", footprint_path(footprint[:id]) %>
       <% end %>
   </div>
