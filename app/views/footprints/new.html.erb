@@ -1,28 +1,11 @@
-<div class="container">
-  <div class="form d-flex justify-content-center">
-    <%= simple_form_for(@footprint) do |f| %>
-    <div style="display:flex; justify-content: space-around" class="">
-       <div class="m-2" >
-       <div><%= f.label :duration_on_terminal %></div>
-        <%= f.number_field :duration_on_terminal %>
-      </div>
-        <div class="m-2" >
-        <%= f.input :terminal_category, collection: ["Phone", "Computer"] %>
-      </div>
-    </div>
-      <div class="m-2" >
-        <%= f.input :country, collection: ["France", "USA", "China"] %>
-      </div>
-    </div>
-    <div>
-       <div class="m-2 ">
-        <div><%= f.label :data_size %></div>
-        <%= f.number_field :data_size %>
-      </div>
-    </div>
-        <%= f.submit class: "btn btn-primary" %>
-      </div>
-    <% end %>
-  </div>
-  </div>
-</div>
+<%= simple_form_for(@footprint) do |f| %>
+  <%= f.label :duration_on_terminal %>
+  <%= f.number_field :duration_on_terminal %>
+  <%= f.input :terminal_category, collection: ["Phone", "Computer"] %>
+
+  <%= f.input :country, collection: ["France", "USA", "China"] %>
+
+  <%= f.label :data_size %>
+  <%= f.number_field :data_size %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
