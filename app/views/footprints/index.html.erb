@@ -1,19 +1,20 @@
 <div class="container">
+  <h1 class="">Welcome</h1>
   <div class="title text-center d-flex justify-content-between align-items-center">
     <% if current_user && current_user.footprints.any? %>
-    <%= link_to "Log out", destroy_user_session_path, :method => :get %>
-    <%= link_to "calculate another carbon footprint", new_footprint_path %>
-    <h1>Please find below all your digital carbon footprint</h1>
+    <%= link_to "Log out", destroy_user_session_path, :method => :get, :class => "btn-ghost" %>
+    <%= link_to "calculate another carbon footprint", new_footprint_path, :class => "btn-flat" %>
+    <h1>Please find below all your digital carbon footprint:</h1>
     <% else %>
     <%= link_to "calculate your carbon footprint", new_footprint_path %>
     <% end  %>
   </div>
   <div class="" >
-    <% current_user.footprints.each do |footprint| %>
+    <% current_user.footprints.each_with_index do |footprint, index| %>
       <div class="">
-        <h3><strong>Total Carbon Footprint:</strong> <%= footprint.carbon_footprint %></h3>
+        <h3><%= index + 1 %> - <strong>Total Carbon Footprint:</strong> <%= footprint.carbon_footprint %></h3>
         <%# <% if footprint.terminal_category ==  %>
-        <%= link_to "See datas", footprint_path(footprint[:id]) %>
+        <%= link_to "See datas", footprint_path(footprint[:id]), :class => "btn-flat" %>
       <% end %>
   </div>
 </div>

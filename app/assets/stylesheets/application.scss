@@ -1,1 +1,13 @@
-@import "bootstrap.scss"
+@import "bootstrap.scss";
+
+@import "pages/index.scss";
+@import "pages/show.scss";
+
+@import "buttons/carbon.scss";
+@import "buttons/logout.scss";
+@import "buttons/alert.scss";
+@import "buttons/neutralButton.scss";
+
+a:link {
+  text-decoration: none;
+}
