@@ -78,6 +78,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.10.3)
       msgpack (~> 1.2)
+    bootstrap-sass (3.4.1)
+      autoprefixer-rails (>= 5.2.1)
+      sassc (>= 2.0.0)
     builder (3.2.4)
     capybara (3.36.0)
       addressable
@@ -281,6 +284,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails (= 10.2.5)
   bootsnap
+  bootstrap-sass
   capybara
   debug
   devise (~> 4.2)
@@ -300,7 +304,7 @@ DEPENDENCIES
   simple_form
   sprockets-rails
   stimulus-rails
-  turbo-rails
+  turbo-rails (~> 1.0.0)
   tzinfo-data
   web-console
   webdrivers
