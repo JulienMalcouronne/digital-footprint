@@ -1,11 +1,9 @@
 <%= simple_form_for(@footprint) do |f| %>
-  <%= f.label :duration_on_terminal %>
+  <%= f.label :duration_on_terminal_in_minutes %>
   <%= f.number_field :duration_on_terminal %>
   <%= f.input :terminal_category, collection: ["Phone", "Computer"] %>
-
   <%= f.input :country, collection: ["France", "USA", "China"] %>
-
-  <%= f.label :data_size %>
+  <%= f.label :data_size_in_kilooctet %>
   <%= f.number_field :data_size %>
   <%= f.submit class: "btn-gradient" %>
 <% end %>

@@ -1,4 +1,5 @@
 <div class="container">
+  <div></div>
   <div class="title text-center d-flex justify-content-between align-items-center mt-5">
     <% if current_user && current_user.footprints.any? %>
       <%= link_to "Log out", destroy_user_session_path, :method => :get, :class => "btn-ghost" %>
@@ -20,7 +21,7 @@
       <div class="">
         <h3><%= index + 1 %> - <strong>Total Carbon Footprint:</strong> <%= footprint.carbon_footprint.round(3) %> KgCo2</h3>
         <% if footprint.terminal_category == "Computer"  %>
-        <p>A good way to reduce your carbon footprint would be to use phone instead your computer </p>
+        <p>A good way to reduce your carbon footprint would be to use phone instead of your computer </p>
         <% end  %>
         <%= link_to "See datas", footprint_path(footprint[:id]), :class => "btn-flat" %>
       <% end %>

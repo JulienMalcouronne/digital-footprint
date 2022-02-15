@@ -13,11 +13,11 @@ class FootprintsController < ApplicationController
   def create
     @footprint = Footprint.new(footprint_params)
     @footprint.user = current_user
-    @footprint.carbon_footprint = recalculate_footprint
     authorize @footprint
 
-    if @footprint.save!
-
+    if @footprint.save
+      @footprint.carbon_footprint = recalculate_footprint
+      @footprint.save
       redirect_to @footprint, notice: 'Your digital carbon footprints has been created'
     else
       render :new
@@ -26,9 +26,6 @@ class FootprintsController < ApplicationController
 
   def show
   end
-
-
-
 
   private
 

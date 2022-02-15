@@ -10,7 +10,6 @@ class Footprint < ApplicationRecord
   validates :terminal_category, presence: true
   validates :data_size, presence: true
   validates :country, presence: true
-  validates :carbon_footprint, presence: true
   validates :data_size, numericality: { greater_than_or_equal_to: 0 }
   validates :duration_on_terminal, numericality: { greater_than_or_equal_to: 0 }
 
