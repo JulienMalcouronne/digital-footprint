@@ -1,20 +1,40 @@
 <div class="container">
-  <h1 class="">Welcome</h1>
-  <div class="title text-center d-flex justify-content-between align-items-center">
+  <div class="title text-center d-flex justify-content-between align-items-center mt-5">
     <% if current_user && current_user.footprints.any? %>
-    <%= link_to "Log out", destroy_user_session_path, :method => :get, :class => "btn-ghost" %>
-    <%= link_to "calculate another carbon footprint", new_footprint_path, :class => "btn-flat" %>
-    <h1>Please find below all your digital carbon footprint:</h1>
+      <%= link_to "Log out", destroy_user_session_path, :method => :get, :class => "btn-ghost" %>
+      <% if current_user.admin == true %>
+        <%= link_to "Admin", "/admin", :class => "btn-ghost" %>
+      <% end %>
+      <%= link_to "calculate another carbon footprint", new_footprint_path, :class => "btn-flat" %>
+      <h1 class="">Welcome</h1>
+      <h1>Please find below all your digital carbon footprint:</h1>
     <% else %>
-    <%= link_to "calculate your carbon footprint", new_footprint_path %>
+    <% if current_user.admin == true %>
+      <%= link_to "Admin", "/admin", :class => "btn-ghost" %>
+    <% end %>
+    <%= link_to "calculate your carbon footprint", new_footprint_path, :class => "btn-flat" %>
     <% end  %>
   </div>
   <div class="" >
     <% current_user.footprints.each_with_index do |footprint, index| %>
       <div class="">
-        <h3><%= index + 1 %> - <strong>Total Carbon Footprint:</strong> <%= footprint.carbon_footprint %></h3>
-        <%# <% if footprint.terminal_category ==  %>
+        <h3><%= index + 1 %> - <strong>Total Carbon Footprint:</strong> <%= footprint.carbon_footprint.round(3) %> KgCo2</h3>
+        <% if footprint.terminal_category == "Computer"  %>
+        <p>A good way to reduce your carbon footprint would be to use phone instead your computer </p>
+        <% end  %>
         <%= link_to "See datas", footprint_path(footprint[:id]), :class => "btn-flat" %>
       <% end %>
   </div>
+</div>
+
+<div class="tips">
+  <h2>Please find below our tips to reduce your digital carbon footprint:</h2>
+  <ul>
+    <li>Keep as long as possible your digital equipments</li>
+    <li>Chose refurbished instead of brand new equipment</li>
+    <li>Uninstall useless software, they are slowing down your machine</li>
+    <li>Put your computer in sleep mode after 3 minutes of inactivity</li>
+    <li>Avoid sending too many emails with too heavy files attached</li>
+    <li>Sort often your emails</li>
+  </ul>
 </div>

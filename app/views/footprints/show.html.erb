@@ -8,5 +8,6 @@
   <% if @footprint.additional_factor > 1.0 %>
   <h2><strong>additional factor:</strong> <%= @footprint.additional_factor %></h2>
   <% end %>
+  <h2><strong>Total carbon footprint:</strong> <%= @footprint.carbon_footprint.round(3) %> KgCo2</h2>
   <%= link_to "Back", footprints_path, :class => "btn-gradient" %>
 </div>
