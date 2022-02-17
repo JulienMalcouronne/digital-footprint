@@ -1,24 +1,14 @@
-# README
+This app is a small calculator for digital carbon footprint. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+You can reach it through the link below :
+https://malcourone-digital-footprint.herokuapp.com/ 
 
-Things you may want to cover:
+To gain admin access you can login to the account below : 
+login : malcouronnejulien@gmail.com 
+password : 123456
 
-* Ruby version
+You can also create a new account but you won't gain access to admin features. 
 
-* System dependencies
+// Technologies //
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Rails 7 - ruby 3.0.3 - Postgres
